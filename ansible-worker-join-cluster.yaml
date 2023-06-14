@@ -1,0 +1,20 @@
+- hosts: workers
+  become: true
+  
+  vars_files:
+    - ansible-vars.yaml
+    
+  tasks:
+
+  - name: read join command
+    debug: msg={{ lookup('file', join_command_location) }}
+    register: join_command_local
+    
+  - name: show join command
+    debug:
+      var: join_command_local.msg
+      
+  - name: join workers to cluster
+    command: "{{ join_command_local.msg }}"
+
+    
