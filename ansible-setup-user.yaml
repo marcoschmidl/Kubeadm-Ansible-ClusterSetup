@@ -5,10 +5,6 @@
     - name: create the ubuntu user account
       user: name=ubuntu append=yes state=present createhome=yes shell=/bin/bash
 
-   # - name: create sudoers.d 
-      #shell: echo "ubuntu ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ubuntu
-      #shell: sudo tee /etc/sudoers.d/ubuntu
-
     - name: Add ubuntu user to sudoers
       become: true
       become_method: sudo
@@ -19,7 +15,7 @@
         validate: "visudo -cf %s"
         state: present
 
-    #
+ 
     #- name: set up authorized keys for the kube user
     #  authorized_key: user=ubuntu key="{{item}}"
     #  with_file:
