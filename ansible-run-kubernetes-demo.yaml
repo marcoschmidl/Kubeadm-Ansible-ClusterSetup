@@ -1,9 +1,5 @@
-
-
-# Creating the namespace in the kubernete cluster
 - hosts: master
-# Defining the remote server where the k8 module will manage the objects
-  remote_user: ubuntu   # Using Remote user as ubuntu
+  remote_user: ubuntu 
   tasks:
  
     - name: copying demo with playbook
