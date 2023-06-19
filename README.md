@@ -66,7 +66,11 @@
  -> ssh Verbindung in die master node
 
  kubectl get all --all-namespaces
+ 
  kubectl describe nodes
+ 
  kubectl get pods -o wide
+ 
  kubectl get svc
+ 
  curl localhost:32000 nginx-service/NodePort
