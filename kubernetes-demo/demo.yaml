@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:     # Deployment metadata
-  name: nginx-deployment  # Name of the deployment
+metadata:    
+  name: nginx-deployment 
   labels:
-     app: nginx  # Declaring the deployments labels.
+     app: nginx 
 spec:
-  replicas: 3  # Declaring the number of Pods required
+  replicas: 3  
   selector:
     matchLabels:
-      app: nginx # Pods will be launched if matches deployment Label.
+      app: nginx 
   template:
     metadata:
       labels:
-        app: nginx # Labels of the Pods.
+        app: nginx 
     spec:
       containers:
       - name: nginx
@@ -22,14 +22,14 @@ spec:
 
 ---
 
-apiVersion: v1        # It is of type String
-kind: Pod             # It is of type String
-metadata:             # It is of type Dictionary
+apiVersion: v1       
+kind: Pod            
+metadata:           
   name: nginx
   labels:
     app: nginx
     tier: frontend
-spec:                  # It is of type List and Array
+spec:                 
   containers:
   - name: nginx
     image: nginx

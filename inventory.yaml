@@ -3,17 +3,12 @@ all:
     master:
       hosts:
         ansible-kubeadm-demo-master:
-          ansible_host: 192.168.178.150
-          ansible_python_interpreter: /usr/bin/python3
-    ungrouped: {}
+          ansible_host: 192.168.178.150 # ip-master-node
     workers:
       hosts:
         ansible-kubeadm-demo-worker1:
-          ansible_host: 192.168.178.125
-          ansible_python_interpreter: /usr/bin/python3
+          ansible_host: 192.168.178.125 # ip-worker-node
         ansible-kubeadm-demo-worker2:
-          ansible_host: 192.168.178.182
-          ansible_python_interpreter: /usr/bin/python3
+          ansible_host: 192.168.178.182 # ip-worker-node
         ansible-kubeadm-demo-worker3:
-          ansible_host: 192.168.178.69
-          ansible_python_interpreter: /usr/bin/python3
+          ansible_host: 192.168.178.69 # ip-worker-node

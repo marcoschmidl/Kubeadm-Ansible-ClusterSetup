@@ -1,0 +1,17 @@
+- hosts: master  
+  tasks:
+ 
+    - name: copying demo with playbook
+      copy:
+        src: demo.yaml
+        dest: /home/ubuntu/demo.yaml
+        owner: ubuntu
+        mode: '0644'
+
+
+    - name: applying Nginx demo   
+      become: yes
+      become_user: ubuntu
+      command: kubectl apply -f demo.yaml
+      args:
+        chdir: $HOME

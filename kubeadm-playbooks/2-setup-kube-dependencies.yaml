@@ -1,6 +1,6 @@
 - hosts: all
-  become: yes
   tasks:
+  
     - fail:
        msg: "OS should be Ubuntu 22.04, not {{ ansible_distribution }} {{ ansible_distribution_version }}"
       when: ansible_distribution != 'Ubuntu' or ansible_distribution_version != '22.04'
@@ -13,8 +13,7 @@
       reboot:
 
     - name: disable SWAP (Kubeadm requirement)
-      shell: |
-        swapoff -a
+      command: swapoff -a
 
     - name: disable SWAP in fstab (Kubeadm requirement)
       replace:
@@ -151,11 +150,9 @@
       reboot:
 
 - hosts: master
-  remote_user: ubuntu
-  become: yes
   tasks:
     - name: install Kubectl
       apt:
         name: kubectl=1.26.*
         state: present
-        force: yes # allow downgrades
+        force: yes 

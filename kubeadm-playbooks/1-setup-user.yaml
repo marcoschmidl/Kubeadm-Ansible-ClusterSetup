@@ -1,0 +1,26 @@
+- hosts: all 
+  tasks:
+  
+    - name: make sure the user is fully set up
+      user:
+        name: ubuntu
+        append: yes
+        state: present
+        createhome: yes
+        shell: /bin/bash
+
+    - name: add ubuntu user to sudoers
+      become_user: root
+      lineinfile:
+        path: /etc/sudoers.d/ubuntu
+        line: "ubuntu ALL=(ALL) NOPASSWD:ALL"
+        create: yes
+        validate: "visudo -cf %s"
+        state: present
+
+
+
+
+
+
+ 
