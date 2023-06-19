@@ -22,6 +22,7 @@
  Es kann je nach Präferenz ein RSA oder ein ed25519 Key erstellt werden. Beides funktioniert.
  
  ssh-keygen -t ed25519 (or rsa)
+ 
  ssh-copy-id -i /path/to/ed25519.pub ubuntu@IP-each-node
 
 
@@ -31,21 +32,26 @@
  Die ansible.cfg aus dem Repo kann verwendet werden. Alternativ kann auch durch das folgende Kommando ein neues File erstellt werden. In beiden Fällen sollte die Kommandos zum testen benutzt werden.
 
  Neues File:
+
  ansible-config init -t all --disabled > ansible.cfg
 
  Die folgenden Werte sollten in der ansible.cfg stehen. 
  
  [defaults]
+ 
  remote_user=ubuntu
 
  [privilege_escalation]
+ 
  become=True
+ 
  become_method=sudo
  
 
  Test der ansible.cfg:
  
  ansible --version
+
  ansible-config view
 
  bei der ansible.cfg ist zu beachten, dass der User Ubuntu durch die Variable für alle Playbooks festgelegt ist. Wenn ein andere Nutzer benötigt wird, muss dies in der ansible.cfg und in den Playbooks definiert werden. Das gleiche gilt für die Sudo-Rechte. 
@@ -63,7 +69,7 @@
  ansible-playbook -i inventory.yaml kubeadm-playbooks/3-setup-master.yaml 
 
  ansible-playbook -i inventory.yaml kubeadm-playbooks/4-join-worker.yaml
- 
+
 
 ### 4. Die Kubernetes-Demo starten 
  ansible-playbook -i inventory.yaml kubernetes-demo/demo-playbook.yaml
