@@ -4,12 +4,14 @@
 
 
 ### Requirements: 
+
 - Master-Node (ubuntu 22.04)
 - mindestens 2 Worker-Nodes (ubuntu 22.04)
 - einen host auf dem Ansible installiert ist
 
 
 ### Für die Nodes:
+
 - 2 GB Ram oder mehr pro Host
 - mindestens 2 CPUs pro Host 
 - eine Netzwerkverbindung zwischen allen Hosts
@@ -53,10 +55,15 @@
  ansible -i inventory.yaml all -m ping
 
 ### 3. Den cluster aufsetzen 
+
  ansible-playbook -K -i inventory.yaml kubeadm-playbooks/1-setup-user.yaml
+
  ansible-playbook -i inventory.yaml kubeadm-playbooks/2-setup-kube-dependencies.yaml
+
  ansible-playbook -i inventory.yaml kubeadm-playbooks/3-setup-master.yaml 
+
  ansible-playbook -i inventory.yaml kubeadm-playbooks/4-join-worker.yaml
+ 
 
 ### 4. Die Kubernetes-Demo starten 
  ansible-playbook -i inventory.yaml kubernetes-demo/demo-playbook.yaml
