@@ -4,15 +4,11 @@ all:
       hosts:
         ansible-kubeadm-demo-master:
           ansible_host: # ip-master-node
-          ansible_user: ubuntu
     workers:
       hosts:
         ansible-kubeadm-demo-worker1:
           ansible_host: # ip-worker-node
-          ansible_user: ubuntu
         ansible-kubeadm-demo-worker2:
           ansible_host: # ip-worker-node
-          ansible_user: ubuntu
         ansible-kubeadm-demo-worker3:
           ansible_host: # ip-worker-node
-          ansible_user: ubuntu
