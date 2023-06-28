@@ -56,7 +56,8 @@
  ```
  ansible-config view
  ```
- bei der ansible.cfg ist zu beachten, dass der User Ubuntu durch die Variable für alle Playbooks festgelegt ist. Wenn ein andere Nutzer benötigt wird, muss dies in der ansible.cfg und in den Playbooks definiert werden. Das gleiche gilt für die Sudo-Rechte. 
+ In der ansible.cfg ist zu beachten, dass der User Ubuntu durch die Variable für alle Playbooks festgelegt ist. Wenn ein andere Nutzer 
+ benötigt wird, muss dies in der ansible.cfg definiert werden. Das gleiche gilt für die Sudo-Rechte. 
 
 ### 2. Die Verbindung von dem Ansible Hosts zu allen Remote-Servern überprüfen. 
 
@@ -87,7 +88,7 @@
 
 ### 5. Der Zustand des Cluster kann mit den folgenden Kommandos verifiziert werden. 
  
- -> ssh Verbindung in die master node
+ Für die verifizierung ist eine SSH-Verbindung in die Master node nötig. 
  ```
  kubectl get all --all-namespaces
  ```
