@@ -1,4 +1,6 @@
 - hosts: all
+  become: yes
+  
   tasks:
   
     - fail:
@@ -150,6 +152,8 @@
       reboot:
 
 - hosts: master
+  become: yes
+  
   tasks:
     - name: install Kubectl
       apt:

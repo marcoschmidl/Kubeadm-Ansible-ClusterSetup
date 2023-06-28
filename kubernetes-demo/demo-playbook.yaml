@@ -1,4 +1,6 @@
-- hosts: master  
+- hosts: master 
+  become: yes
+  
   tasks:
  
     - name: copying demo with playbook
@@ -10,7 +12,6 @@
 
 
     - name: applying Nginx demo   
-      become: yes
       become_user: ubuntu
       command: kubectl apply -f demo.yaml
       args:
