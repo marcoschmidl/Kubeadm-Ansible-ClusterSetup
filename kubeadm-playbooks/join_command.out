@@ -1,1 +1,1 @@
-kubeadm join 192.168.178.150:6443 --token 56uwnc.z0hr0he134wgmt4f --discovery-token-ca-cert-hash sha256:37edf366ece8da226febc506f132651278c8adfe6ac90011a306af1ac1741f31
+kubeadm join 192.168.178.150:6443 --token mlfp4z.f5xtwoglx93li7j5 --discovery-token-ca-cert-hash sha256:181fefb1018f93c186cea6ec4bbbc4f22099409a6ad8bf7c44203457d7645c9f
